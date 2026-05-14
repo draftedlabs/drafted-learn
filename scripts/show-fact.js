@@ -77,12 +77,32 @@ const SPINNER_FRAMES = ['|', '/', '-', '\\'];
 const SPIN_DURATION  = 2000; // ms
 const SPIN_INTERVAL  = 80;   // ms per frame
 
-const tty = fs.openSync('/dev/tty', 'w');
-function write(str) { fs.writeSync(tty, str); }
+let tty = null;
+let hasTty = false;
+try {
+  tty = fs.openSync('/dev/tty', 'w');
+  hasTty = true;
+} catch {
+  // /dev/tty unavailable (e.g. Claude Code hook subprocess) — fall back to stderr
+}
+
+function write(str) {
+  if (hasTty) {
+    fs.writeSync(tty, str);
+  } else {
+    process.stderr.write(str);
+  }
+}
 
 // Print the box
 write('\n');
 staticLines.forEach((l, i) => write(INDENT + colorLine(l, i, staticLines.length) + '\n'));
+
+if (!hasTty) {
+  // No real tty — can't do cursor tricks, just print a trailing newline and exit
+  write('\n');
+  process.exit(0);
+}
 
 // Spin the spinner to the right of the top border line, for SPIN_DURATION ms
 // Move cursor back up to the top border line, animate spinner after the box right edge

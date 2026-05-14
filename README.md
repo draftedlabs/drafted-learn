@@ -10,7 +10,7 @@ A Claude Code plugin that teaches you AI/ML while Claude is thinking. Every time
 
 ```
   ╔══════════════════════════════════════════════════════════════╗
-  ║ FACT #028: TRANSFORMERS & LLMS                               ║
+  ║ DRAFTED FACT #028: TRANSFORMERS & LLMS                       ║
   ╠══════════════════════════════════════════════════════════════╣
   ║                                                              ║
   ║ RLHF (Reinforcement Learning from Human Feedback)           ║

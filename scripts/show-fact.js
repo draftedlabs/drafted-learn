@@ -22,7 +22,7 @@ const factsPath = path.join(__dirname, '..', 'data', 'ai-facts.json');
 const { facts } = JSON.parse(fs.readFileSync(factsPath, 'utf8'));
 const fact = facts[Math.floor(Math.random() * facts.length)];
 
-const label = `FACT #${fact.id}: ${fact.category.toUpperCase().replace(/_/g, ' ')}`;
+const label = `DRAFTED FACT #${fact.id}: ${fact.category.toUpperCase().replace(/_/g, ' ')}`;
 const LINK_TEXT = 'joindrafted.com/student';
 const LINK      = `\x1b]8;;https://joindrafted.com/student\x1b\\${LINK_TEXT}\x1b]8;;\x1b\\`;
 const CTA_TEXT  = `Learn more at ${LINK_TEXT}`;
@@ -75,5 +75,5 @@ function colorLine(l, i) {
 const tty = fs.createWriteStream('/dev/tty');
 tty.write('\n');
 lines.forEach((l, i) => tty.write(INDENT + colorLine(l, i) + '\n'));
-tty.write('\n\n\n');
+tty.write('\n\n\n\n\n\n');
 tty.end();

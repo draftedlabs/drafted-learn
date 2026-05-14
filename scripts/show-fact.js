@@ -104,16 +104,14 @@ if (!hasTty) {
   process.exit(0);
 }
 
-// Spin the spinner to the right of the top border line, for SPIN_DURATION ms
-// Move cursor back up to the top border line, animate spinner after the box right edge
+// Spin the spinner inside the category row, right after the label text
 const totalLines = staticLines.length;
-write(UP(totalLines)); // go back to top border
+write(UP(totalLines - 1)); // go back to catRow (line index 1)
 
 let frame = 0;
-const spinnerCol = INDENT.length + WIDTH + 1; // one char after the right border
+const spinnerCol = INDENT.length + label.length + 3; // right after "║ <label> "
 
 function drawFrame() {
-  // Position cursor at top border line, column after the box
   write(`${COL0}\x1b[${spinnerCol}G${GREEN}${SPINNER_FRAMES[frame % SPINNER_FRAMES.length]}${RESET}`);
   frame++;
 }
@@ -124,10 +122,8 @@ const interval = setInterval(drawFrame, SPIN_INTERVAL);
 
 setTimeout(() => {
   clearInterval(interval);
-  // Clear the spinner char
   write(`${COL0}\x1b[${spinnerCol}G `);
-  // Move cursor back down to after the box
-  write(`\x1b[${totalLines - 1}B\n`);
+  write(`\x1b[${totalLines - 2}B\n`);
   write('\n\n\n\n\n\n');
   fs.closeSync(tty);
 }, SPIN_DURATION);

@@ -2,7 +2,9 @@
 
 > *Because staring at a spinner is a waste of a perfectly good brain.*
 
-A Claude Code plugin that teaches you AI/ML while Claude is thinking. Every time you hit enter, a fact from the frontier appears in your terminal — tokenization, transformers, RLHF, agent architecture, the works.
+Keep learning with hands-on tasks at: [joindrafted.com/student](https://joindrafted.com/student)
+
+A Claude Code plugin that teaches you AI/ML while Claude is thinking. Every time you hit enter, a fact from the frontier appears in your terminal. Tokenization, transformers, RLHF, agent architecture, the works.
 
 94 facts. Zero extra time required. You were going to wait anyway.
 
@@ -52,7 +54,7 @@ claude /plugin uninstall drafted-learn
 | **Neural Networks** | Backprop, gradient descent, CNNs, RNNs, dropout, ResNets |
 | **Transformers & LLMs** | Self-attention, BERT, GPT, RLHF, KV-cache, MoE, fine-tuning |
 | **AI Agents** | Agentic loops, tool use, ReAct, MCP, multi-agent systems |
-| **AI History** | Turing (1950) through OpenAI o1 (2024) — the full arc |
+| **AI History** | Turing (1950) through OpenAI o1 (2024) |
 | **Training Data** | Annotation, IAA, synthetic data, scaling laws, eval hygiene |
 | **Practical ML Engineering** | Loss, RAG, embeddings, cosine similarity, precision/recall |
 | **Ethics & Safety** | Hallucination, alignment, prompt injection, red-teaming |
@@ -63,26 +65,26 @@ By the time you finish a project, you'll have absorbed more AI fundamentals than
 
 ## Why we built this
 
-**[Drafted](https://joindrafted.com)** connects university students to real AI work — annotation tasks, RLHF feedback, agent evaluation, and more — for frontier AI labs building the next generation of models.
+**[Drafted](https://joindrafted.com)** connects university students to real AI work for frontier AI labs building the next generation of models.
 
-We built drafted-learn because we kept seeing the same thing: students who could *use* AI tools but couldn't explain what was happening under the hood. They'd open Claude Code, ship something, and close it — without ever knowing what a token is, what RLHF did to the model they just prompted, or why hallucinations happen.
+We built drafted-learn because we kept seeing the same thing: students who could *use* AI tools but couldn't explain what was happening under the hood. They'd open Claude Code, ship something, and close it without ever knowing what a token is, what RLHF did to the model they just prompted, or why hallucinations happen.
 
 That felt like a missed opportunity. You're already here. The spinner is already spinning. Might as well learn something.
 
-The students who understand the stack — not just the surface — are the ones who get hired to build it. That's what Drafted is for.
+The students who understand the stack, not just the surface, are the ones who get hired to build it. That's what Drafted is for.
 
 ---
 
-## Want to do more than learn?
+## Want to keep learning with hands-on tasks?
 
-Drafted places students in paid AI work with real labs. If you want to go from *understanding* RLHF to *doing* RLHF, we have a spot for you.
+Drafted places students in real AI work. If you want to go from *understanding* RLHF to *doing* RLHF, we have a spot for you.
 
-**Apply to work on AI training data:**
+**Keep learning with hands-on tasks at:**
 [joindrafted.com/student](https://joindrafted.com/student)
 
-You'll annotate, evaluate, and help train the models you use every day. Flexible hours, paid per task, and you learn more in one project than a semester of coursework.
+You'll work on real tasks, learn more in one project than a semester of coursework, and build a track record doing actual AI work.
 
-University partners: USC, UChicago, Georgetown, U Miami — and growing.
+University partners: USC, UChicago, Georgetown, U Miami and growing.
 
 ---
 
@@ -107,10 +109,10 @@ PRs welcome. If you know something worth knowing, share it.
 
 ## Technical details
 
-- Hook: `UserPromptSubmit` — fires on every prompt, before Claude responds
+- Hook: `UserPromptSubmit` fires on every prompt, before Claude responds
 - Output: writes directly to `/dev/tty` so it never interferes with Claude's output
 - Width: auto-adapts to your terminal width (min 40, max 120)
-- Clickable CTA: OSC 8 hyperlink — works in iTerm2, Ghostty, WezTerm
+- Clickable CTA: OSC 8 hyperlink, works in iTerm2, Ghostty, WezTerm
 - No dependencies. Just Node.js, which you already have.
 
 ---

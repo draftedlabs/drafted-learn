@@ -31,15 +31,15 @@ You need Claude Code. If you don't have it: [claude.ai/code](https://claude.ai/c
 Then run these two commands:
 
 ```bash
-claude /plugin marketplace add draftedlabs/drafted-learn
-claude /plugin install drafted-learn@drafted-learn
+claude plugin marketplace add draftedlabs/drafted-learn
+claude plugin install drafted-learn@drafted-learn
 ```
 
 That's it. Start a new session and send any message. The box appears.
 
 **To uninstall:**
 ```bash
-claude /plugin uninstall drafted-learn
+claude plugin uninstall drafted-learn
 ```
 
 ---

@@ -1,12 +1,12 @@
 {
   "name": "drafted-learn",
-  "description": "Rotating AI/ML education facts during Claude Code loading — by Drafted Labs",
+  "description": "AI/ML facts in your terminal while Claude thinks. 94 facts across 8 categories.",
   "version": "1.0.0",
   "author": {
     "name": "Drafted Labs",
-    "url": "https://joindrafted.com"
+    "homepage": "https://joindrafted.com"
   },
-  "homepage": "https://joindrafted.com/students",
+  "homepage": "https://joindrafted.com/student",
   "repository": "https://github.com/draftedlabs/drafted-learn",
   "license": "MIT",
   "keywords": ["education", "ai", "ml", "learning", "agents", "drafted"]

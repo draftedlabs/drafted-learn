@@ -9,7 +9,10 @@
     {
       "name": "drafted-learn",
       "source": "./",
-      "description": "AI/ML education facts displayed during Claude Code loading"
+      "description": "AI/ML facts in your terminal while Claude thinks. 94 facts across 8 categories.",
+      "category": "education",
+      "tags": ["ai", "learning", "education", "ml"],
+      "homepage": "https://joindrafted.com/student"
     }
   ]
 }

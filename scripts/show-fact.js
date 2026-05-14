@@ -109,7 +109,7 @@ const totalLines = staticLines.length;
 write(UP(totalLines - 1)); // go back to catRow (line index 1)
 
 let frame = 0;
-const spinnerCol = INDENT.length + label.length + 3; // right after "║ <label> "
+const spinnerCol = INDENT.length + label.length + 4; // one space after "║ <label>  "
 
 function drawFrame() {
   write(`${COL0}\x1b[${spinnerCol}G${GREEN}${SPINNER_FRAMES[frame % SPINNER_FRAMES.length]}${RESET}`);

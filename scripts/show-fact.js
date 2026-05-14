@@ -60,17 +60,15 @@ const staticLines = [top, catRow, div, empty, ...rows, empty, ctaRow, bot];
 
 const RESET  = '\x1b[0m';
 const GREEN  = '\x1b[92m';
-const YELLOW = '\x1b[93m';
+const BOLD   = '\x1b[1m';
 const DIM    = '\x1b[2m';
 const UP     = (n) => `\x1b[${n}A`;
 const COL0   = '\x1b[0G';
 
 function colorLine(l, i, total) {
-  if (i === 0 || i === total - 1) return GREEN + l + RESET;
-  if (i === 1) return YELLOW + l + RESET;
-  if (i === 2) return GREEN + l + RESET;
-  if (l.includes('joindrafted')) return DIM + l + RESET;
-  return l;
+  if (i === 1) return GREEN + BOLD + l + RESET;
+  if (l.includes('joindrafted')) return GREEN + DIM + l + RESET;
+  return GREEN + l + RESET;
 }
 
 const SPINNER_FRAMES = ['|', '/', '-', '\\'];

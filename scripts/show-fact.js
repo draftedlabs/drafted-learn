@@ -60,7 +60,7 @@ const bot    = `╚${'═'.repeat(WIDTH - 2)}╝`;
 const lines = [top, catRow, div, empty, ...rows, empty, ctaRow, bot];
 
 const RESET  = '\x1b[0m';
-const CYAN   = '\x1b[96m';
+const CYAN   = '\x1b[92m';
 const YELLOW = '\x1b[93m';
 const DIM    = '\x1b[2m';
 

@@ -1,4 +1,4 @@
-# drafted-learn
+# Drafted Claude Code Plugin
 
 > *Because staring at a spinner is a waste of a perfectly good brain.*
 
@@ -13,12 +13,12 @@ A Claude Code plugin that teaches you AI/ML while Claude is thinking. Every time
   ║ DRAFTED FACT #028: TRANSFORMERS & LLMS                       ║
   ╠══════════════════════════════════════════════════════════════╣
   ║                                                              ║
-  ║ RLHF (Reinforcement Learning from Human Feedback)           ║
-  ║ fine-tunes a base LLM using human preference rankings,      ║
-  ║ making outputs more aligned and helpful. Used in            ║
-  ║ ChatGPT and Claude.                                         ║
+  ║ RLHF (Reinforcement Learning from Human Feedback)            ║
+  ║ fine-tunes a base LLM using human preference rankings,       ║
+  ║ making outputs more aligned and helpful. Used in             ║
+  ║ ChatGPT and Claude.                                          ║
   ║                                                              ║
-  ║ Learn more at joindrafted.com/student                       ║
+  ║ Learn more at joindrafted.com/student                        ║
   ╚══════════════════════════════════════════════════════════════╝
 ```
 

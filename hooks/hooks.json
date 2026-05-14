@@ -5,10 +5,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node",
-            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/show-fact.js"],
-            "timeout": 10,
-            "async": true
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/show-fact.js",
+            "timeout": 10
           }
         ]
       }

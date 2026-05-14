@@ -1,0 +1,15 @@
+{
+  "name": "drafted-learn",
+  "description": "Drafted Labs plugin marketplace",
+  "owner": {
+    "name": "Drafted Labs",
+    "email": "hello@joindrafted.com"
+  },
+  "plugins": [
+    {
+      "name": "drafted-learn",
+      "source": "./",
+      "description": "AI/ML education facts displayed during Claude Code loading"
+    }
+  ]
+}

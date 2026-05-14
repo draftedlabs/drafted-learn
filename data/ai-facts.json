@@ -1,0 +1,757 @@
+{
+  "version": "1.0.0",
+  "facts": [
+    {
+      "id": "001",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "An agent is any system that perceives its environment through sensors and acts upon it through actuators to maximize a goal.",
+      "source": "Russell & Norvig, Artificial Intelligence: A Modern Approach",
+      "tags": ["agent", "definition", "classic"]
+    },
+    {
+      "id": "002",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "A model is a mathematical function that maps inputs to outputs. Training finds the parameters that minimize prediction error.",
+      "source": "Drafted Labs",
+      "tags": ["model", "training", "parameters"]
+    },
+    {
+      "id": "003",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "A parameter is a number inside a neural network that gets updated during training. GPT-4 has an estimated 1.76 trillion parameters.",
+      "source": "Drafted Labs",
+      "tags": ["parameters", "neural-network", "scale"]
+    },
+    {
+      "id": "004",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "Inference is the process of running a trained model on new inputs to generate predictions or outputs.",
+      "source": "Drafted Labs",
+      "tags": ["inference", "deployment"]
+    },
+    {
+      "id": "005",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "A token is the basic unit of text a language model processes — roughly 3/4 of a word in English. \"ChatGPT\" is one token; \"chat GPT\" is two.",
+      "source": "OpenAI Tokenizer Docs",
+      "tags": ["tokens", "tokenization", "llm"]
+    },
+    {
+      "id": "006",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "Context window is the maximum number of tokens a model can process in a single forward pass — both input and output combined.",
+      "source": "Drafted Labs",
+      "tags": ["context-window", "llm", "limits"]
+    },
+    {
+      "id": "007",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "A prompt is the input text provided to a language model to elicit a desired response.",
+      "source": "Drafted Labs",
+      "tags": ["prompt", "llm", "input"]
+    },
+    {
+      "id": "008",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "Temperature controls randomness in model outputs: 0.0 = deterministic, 1.0 = highly variable, values above 1.0 can cause incoherence.",
+      "source": "Drafted Labs",
+      "tags": ["temperature", "sampling", "generation"]
+    },
+    {
+      "id": "009",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "Overfitting happens when a model memorizes training data rather than learning generalizable patterns — it performs well on training data but poorly on new data.",
+      "source": "Drafted Labs",
+      "tags": ["overfitting", "generalization", "training"]
+    },
+    {
+      "id": "010",
+      "category": "foundations",
+      "difficulty": "beginner",
+      "text": "Underfitting happens when a model is too simple to capture the underlying patterns in data.",
+      "source": "Drafted Labs",
+      "tags": ["underfitting", "model-capacity", "training"]
+    },
+    {
+      "id": "011",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "A neural network is a function composed of layers of weighted sums followed by nonlinear activations — loosely inspired by biological neurons.",
+      "source": "Drafted Labs",
+      "tags": ["neural-network", "architecture", "layers"]
+    },
+    {
+      "id": "012",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "Backpropagation is the algorithm for computing gradients in neural networks by applying the chain rule of calculus backward through layers.",
+      "source": "Rumelhart, Hinton & Williams, 1986",
+      "tags": ["backpropagation", "gradients", "training"]
+    },
+    {
+      "id": "013",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "Gradient descent updates model weights in the direction that reduces loss. Stochastic gradient descent (SGD) does this one mini-batch at a time.",
+      "source": "Drafted Labs",
+      "tags": ["gradient-descent", "optimization", "sgd"]
+    },
+    {
+      "id": "014",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "A layer in a neural network transforms its input through a learned linear map followed by a nonlinearity like ReLU or sigmoid.",
+      "source": "Drafted Labs",
+      "tags": ["layers", "activation", "linear-algebra"]
+    },
+    {
+      "id": "015",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "ReLU (Rectified Linear Unit) outputs max(0, x) — the most widely used activation function because it avoids vanishing gradients in deep networks.",
+      "source": "Nair & Hinton, 2010",
+      "tags": ["relu", "activation-function", "deep-learning"]
+    },
+    {
+      "id": "016",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "A convolutional neural network (CNN) applies learned filters across an input, making it highly efficient at detecting spatial patterns in images.",
+      "source": "LeCun et al., 1989",
+      "tags": ["cnn", "computer-vision", "filters"]
+    },
+    {
+      "id": "017",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "A recurrent neural network (RNN) processes sequences by maintaining hidden state between steps — but struggles with long-range dependencies due to vanishing gradients.",
+      "source": "Elman, 1990",
+      "tags": ["rnn", "sequence-modeling", "vanishing-gradient"]
+    },
+    {
+      "id": "018",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "Dropout randomly zeroes out a fraction of neurons during training, preventing co-adaptation and reducing overfitting.",
+      "source": "Srivastava et al., 2014",
+      "tags": ["dropout", "regularization", "overfitting"]
+    },
+    {
+      "id": "019",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "Batch normalization normalizes layer activations during training, stabilizing and accelerating convergence significantly.",
+      "source": "Ioffe & Szegedy, 2015",
+      "tags": ["batch-norm", "training", "convergence"]
+    },
+    {
+      "id": "020",
+      "category": "neural_networks",
+      "difficulty": "intermediate",
+      "text": "Residual connections (skip connections) add a layer's input directly to its output, enabling very deep networks. This is what made ResNet possible.",
+      "source": "He et al., 2015",
+      "tags": ["residual", "skip-connections", "resnet"]
+    },
+    {
+      "id": "021",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "The Transformer architecture, introduced in \"Attention Is All You Need\" (2017), replaced recurrence with self-attention and became the foundation of all modern LLMs.",
+      "source": "Vaswani et al., 2017",
+      "tags": ["transformer", "attention", "landmark"]
+    },
+    {
+      "id": "022",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "Self-attention allows every token in a sequence to attend to every other token, learning contextual relationships regardless of distance.",
+      "source": "Vaswani et al., 2017",
+      "tags": ["self-attention", "transformer", "context"]
+    },
+    {
+      "id": "023",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "An attention head computes a weighted sum of value vectors, where weights are determined by query-key compatibility. Multiple heads capture different relationship types.",
+      "source": "Vaswani et al., 2017",
+      "tags": ["attention-head", "multi-head-attention", "transformer"]
+    },
+    {
+      "id": "024",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "BERT (2018) introduced bidirectional pretraining — it reads context from both left and right, making it powerful for classification and understanding tasks.",
+      "source": "Devlin et al., 2018",
+      "tags": ["bert", "pretraining", "bidirectional"]
+    },
+    {
+      "id": "025",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "GPT (2018) introduced large-scale left-to-right autoregressive pretraining on web text as a general-purpose language model.",
+      "source": "Radford et al., 2018",
+      "tags": ["gpt", "autoregressive", "pretraining"]
+    },
+    {
+      "id": "026",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "An embedding is a dense vector representation of a token in a high-dimensional space where semantic similarity corresponds to geometric proximity.",
+      "source": "Drafted Labs",
+      "tags": ["embedding", "vector", "semantics"]
+    },
+    {
+      "id": "027",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "Positional encoding gives transformers information about token order — since self-attention is order-agnostic, position must be explicitly injected.",
+      "source": "Vaswani et al., 2017",
+      "tags": ["positional-encoding", "transformer", "order"]
+    },
+    {
+      "id": "028",
+      "category": "transformers",
+      "difficulty": "advanced",
+      "text": "RLHF (Reinforcement Learning from Human Feedback) fine-tunes a base LLM using human preference rankings, making outputs more aligned and helpful. Used in ChatGPT and Claude.",
+      "source": "Ouyang et al., 2022",
+      "tags": ["rlhf", "alignment", "fine-tuning"]
+    },
+    {
+      "id": "029",
+      "category": "transformers",
+      "difficulty": "beginner",
+      "text": "A system prompt is hidden context provided to a model before the user's message — it sets the persona, rules, and behavior of the assistant.",
+      "source": "Drafted Labs",
+      "tags": ["system-prompt", "context", "llm"]
+    },
+    {
+      "id": "030",
+      "category": "transformers",
+      "difficulty": "advanced",
+      "text": "The KV-cache stores computed key/value pairs for previously seen tokens during inference, dramatically reducing the cost of generating long outputs.",
+      "source": "Drafted Labs",
+      "tags": ["kv-cache", "inference", "efficiency"]
+    },
+    {
+      "id": "031",
+      "category": "transformers",
+      "difficulty": "advanced",
+      "text": "Constitutional AI (CAI) is Anthropic's method of training Claude to self-critique and revise outputs based on a set of principles, reducing reliance on human labeling.",
+      "source": "Bai et al., 2022",
+      "tags": ["constitutional-ai", "anthropic", "alignment"]
+    },
+    {
+      "id": "032",
+      "category": "transformers",
+      "difficulty": "advanced",
+      "text": "Mixture of Experts (MoE) routes each token through only a subset of expert subnetworks, enabling massive model scale without proportional compute cost.",
+      "source": "Fedus et al., 2022",
+      "tags": ["moe", "scale", "efficiency"]
+    },
+    {
+      "id": "033",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "Quantization reduces model precision (e.g., from float32 to int4) to shrink model size and increase inference speed with modest quality trade-offs.",
+      "source": "Drafted Labs",
+      "tags": ["quantization", "inference", "efficiency"]
+    },
+    {
+      "id": "034",
+      "category": "transformers",
+      "difficulty": "intermediate",
+      "text": "Fine-tuning adapts a pretrained model to a specific task by continuing training on domain-specific data with a lower learning rate.",
+      "source": "Drafted Labs",
+      "tags": ["fine-tuning", "transfer-learning", "adaptation"]
+    },
+    {
+      "id": "035",
+      "category": "agents",
+      "difficulty": "beginner",
+      "text": "An AI agent is a system that can perceive inputs, reason about them, take actions (calling tools, browsing the web), and observe results in a loop.",
+      "source": "Drafted Labs",
+      "tags": ["agent", "tools", "loop"]
+    },
+    {
+      "id": "036",
+      "category": "agents",
+      "difficulty": "beginner",
+      "text": "An agentic loop is the cycle of: observe, think, act, observe. Modern AI agents repeat this loop until a goal is achieved or they run out of turns.",
+      "source": "Drafted Labs",
+      "tags": ["agentic-loop", "reasoning", "actions"]
+    },
+    {
+      "id": "037",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "Tool use (function calling) allows an LLM to invoke external functions — search, code execution, databases — by outputting structured JSON a host system executes.",
+      "source": "OpenAI, 2023",
+      "tags": ["tool-use", "function-calling", "agents"]
+    },
+    {
+      "id": "038",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "ReAct (Reasoning + Acting) is a prompting framework where the model alternates between thought traces (reasoning) and action calls (tool use).",
+      "source": "Yao et al., 2022",
+      "tags": ["react", "reasoning", "tool-use"]
+    },
+    {
+      "id": "039",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "A planning agent decomposes a complex goal into subtasks, executes them in order or parallel, and adapts when subtasks fail.",
+      "source": "Drafted Labs",
+      "tags": ["planning", "decomposition", "agents"]
+    },
+    {
+      "id": "040",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "Memory in AI agents comes in four types: in-context (working), external (vector DBs), episodic (past conversation logs), and semantic (learned knowledge).",
+      "source": "Drafted Labs",
+      "tags": ["memory", "agents", "retrieval"]
+    },
+    {
+      "id": "041",
+      "category": "agents",
+      "difficulty": "advanced",
+      "text": "Multi-agent systems coordinate multiple specialized agents — a planner delegates subtasks to workers, aggregates results, and synthesizes a final output.",
+      "source": "Drafted Labs",
+      "tags": ["multi-agent", "coordination", "orchestration"]
+    },
+    {
+      "id": "042",
+      "category": "agents",
+      "difficulty": "advanced",
+      "text": "An agent evaluator (eval) measures agent performance on a benchmark of tasks with known ground-truth answers. This is Drafted Labs' core product focus.",
+      "source": "Drafted Labs",
+      "tags": ["eval", "benchmarking", "measurement"]
+    },
+    {
+      "id": "043",
+      "category": "agents",
+      "difficulty": "advanced",
+      "text": "Hallucination in agents is dangerous because the model may call a nonexistent tool, generate incorrect API arguments, or fabricate data that downstream steps act upon.",
+      "source": "Drafted Labs",
+      "tags": ["hallucination", "agents", "safety"]
+    },
+    {
+      "id": "044",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "Scaffolding is the code outside the model that manages the agentic loop, tool definitions, memory retrieval, and result aggregation.",
+      "source": "Drafted Labs",
+      "tags": ["scaffolding", "agents", "orchestration"]
+    },
+    {
+      "id": "045",
+      "category": "agents",
+      "difficulty": "beginner",
+      "text": "Claude Code is itself an AI agent — it reads your codebase, plans edits, writes files, runs bash commands, and iterates until your task is complete.",
+      "source": "Anthropic, 2024",
+      "tags": ["claude-code", "agent", "coding"]
+    },
+    {
+      "id": "046",
+      "category": "agents",
+      "difficulty": "intermediate",
+      "text": "Model Context Protocol (MCP) is an open standard by Anthropic for connecting AI models to external tools and data sources with a unified interface.",
+      "source": "Anthropic, 2024",
+      "tags": ["mcp", "protocol", "tools"]
+    },
+    {
+      "id": "047",
+      "category": "agents",
+      "difficulty": "advanced",
+      "text": "An agent benchmark is a dataset of tasks with verifiable outcomes (code that passes tests, SQL that returns correct rows) used to evaluate agent capability objectively.",
+      "source": "Drafted Labs",
+      "tags": ["benchmark", "evaluation", "agents"]
+    },
+    {
+      "id": "048",
+      "category": "agents",
+      "difficulty": "advanced",
+      "text": "The Alignment Problem asks: how do we build agents that reliably pursue the goals we intend, not just the goals we specified?",
+      "source": "Stuart Russell, 2019",
+      "tags": ["alignment", "safety", "goals"]
+    },
+    {
+      "id": "049",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "1950: Alan Turing proposed the imitation game (now the Turing Test) as a measure of machine intelligence in \"Computing Machinery and Intelligence.\"",
+      "source": "Turing, 1950",
+      "tags": ["turing", "history", "milestone"]
+    },
+    {
+      "id": "050",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "1956: The Dartmouth Workshop coined the term \"Artificial Intelligence\" and launched it as an academic discipline. John McCarthy organized the event.",
+      "source": "McCarthy et al., 1956",
+      "tags": ["dartmouth", "history", "ai-origin"]
+    },
+    {
+      "id": "051",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "1986: Backpropagation was popularized by Rumelhart, Hinton & Williams, enabling practical training of multi-layer neural networks for the first time.",
+      "source": "Rumelhart et al., 1986",
+      "tags": ["backpropagation", "history", "hinton"]
+    },
+    {
+      "id": "052",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "1997: IBM's Deep Blue defeated world chess champion Garry Kasparov, the first time a computer beat a reigning world champion under tournament conditions.",
+      "source": "IBM, 1997",
+      "tags": ["deep-blue", "chess", "history"]
+    },
+    {
+      "id": "053",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "1998: Yann LeCun trained LeNet-5 on handwritten digits using CNNs and backpropagation, establishing the blueprint for modern convolutional networks.",
+      "source": "LeCun et al., 1998",
+      "tags": ["lecun", "cnn", "history"]
+    },
+    {
+      "id": "054",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2012: AlexNet won ImageNet by a large margin using deep CNNs trained on GPUs, triggering the deep learning revolution.",
+      "source": "Krizhevsky et al., 2012",
+      "tags": ["alexnet", "imagenet", "deep-learning"]
+    },
+    {
+      "id": "055",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2014: Generative Adversarial Networks (GANs) were introduced by Ian Goodfellow — a generator and discriminator trained in adversarial competition.",
+      "source": "Goodfellow et al., 2014",
+      "tags": ["gans", "generative", "history"]
+    },
+    {
+      "id": "056",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "2015: AlphaGo (DeepMind) defeated a professional Go player for the first time, a milestone previously thought to be decades away.",
+      "source": "Silver et al., 2016",
+      "tags": ["alphago", "deepmind", "go"]
+    },
+    {
+      "id": "057",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2017: \"Attention Is All You Need\" introduced the Transformer, ending the dominance of RNNs and launching the modern LLM era.",
+      "source": "Vaswani et al., 2017",
+      "tags": ["transformer", "attention", "landmark"]
+    },
+    {
+      "id": "058",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2018: BERT and GPT-1 demonstrated that large-scale language model pretraining on web text outperformed specialized models on NLP benchmarks.",
+      "source": "Devlin et al.; Radford et al., 2018",
+      "tags": ["bert", "gpt", "pretraining"]
+    },
+    {
+      "id": "059",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2020: GPT-3 with 175B parameters demonstrated few-shot learning at scale — performing tasks from examples in the prompt alone, no fine-tuning needed.",
+      "source": "Brown et al., 2020",
+      "tags": ["gpt-3", "few-shot", "scale"]
+    },
+    {
+      "id": "060",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "2022: ChatGPT reached 1 million users in 5 days, faster than any consumer product in history, marking AI's mainstream breakthrough.",
+      "source": "OpenAI, 2022",
+      "tags": ["chatgpt", "history", "milestone"]
+    },
+    {
+      "id": "061",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "2022: Stable Diffusion and DALL-E 2 brought text-to-image generation to the public, demonstrating the power of diffusion models.",
+      "source": "Rombach et al., 2022",
+      "tags": ["diffusion", "image-generation", "history"]
+    },
+    {
+      "id": "062",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "2023: GPT-4 passed the bar exam in the top 10% of test takers, demonstrating LLMs could achieve professional-level performance on standardized tests.",
+      "source": "OpenAI, 2023",
+      "tags": ["gpt-4", "benchmarks", "history"]
+    },
+    {
+      "id": "063",
+      "category": "history",
+      "difficulty": "beginner",
+      "text": "2024: Claude 3 Opus outperformed GPT-4 on multiple reasoning benchmarks, establishing Anthropic as a leading frontier AI lab.",
+      "source": "Anthropic, 2024",
+      "tags": ["claude", "anthropic", "benchmarks"]
+    },
+    {
+      "id": "064",
+      "category": "history",
+      "difficulty": "intermediate",
+      "text": "2024: OpenAI's o1 introduced chain-of-thought reasoning at inference time, trading compute for accuracy on hard math and coding problems.",
+      "source": "OpenAI, 2024",
+      "tags": ["o1", "chain-of-thought", "reasoning"]
+    },
+    {
+      "id": "065",
+      "category": "training_data",
+      "difficulty": "intermediate",
+      "text": "RLHF requires human annotators to compare model outputs and rank them by preference — the ranking data trains a reward model used for policy optimization.",
+      "source": "Ouyang et al., 2022",
+      "tags": ["rlhf", "annotation", "human-feedback"]
+    },
+    {
+      "id": "066",
+      "category": "training_data",
+      "difficulty": "beginner",
+      "text": "Training data quality matters more than quantity. A dataset with 10K high-quality, diverse examples often beats 10M noisy, duplicated ones.",
+      "source": "Drafted Labs",
+      "tags": ["data-quality", "training", "annotation"]
+    },
+    {
+      "id": "067",
+      "category": "training_data",
+      "difficulty": "beginner",
+      "text": "Data labeling (annotation) is the process of tagging raw data — text, images, audio — with ground truth labels that supervised learning algorithms train on.",
+      "source": "Drafted Labs",
+      "tags": ["annotation", "labeling", "supervised-learning"]
+    },
+    {
+      "id": "068",
+      "category": "training_data",
+      "difficulty": "intermediate",
+      "text": "A golden dataset is a set of examples with high-confidence, human-verified labels used to benchmark model quality and calibrate evaluator systems.",
+      "source": "Drafted Labs",
+      "tags": ["golden-dataset", "evaluation", "quality"]
+    },
+    {
+      "id": "069",
+      "category": "training_data",
+      "difficulty": "intermediate",
+      "text": "Inter-annotator agreement (IAA) measures how consistently different human labelers produce the same labels — a key quality signal for training data.",
+      "source": "Drafted Labs",
+      "tags": ["iaa", "annotation-quality", "consistency"]
+    },
+    {
+      "id": "070",
+      "category": "training_data",
+      "difficulty": "intermediate",
+      "text": "Synthetic data generation uses models to produce training examples, reducing annotation cost — but risks amplifying biases already in the model.",
+      "source": "Drafted Labs",
+      "tags": ["synthetic-data", "generation", "bias"]
+    },
+    {
+      "id": "071",
+      "category": "training_data",
+      "difficulty": "advanced",
+      "text": "The scaling hypothesis holds that model capability grows predictably with compute, data, and parameters — supporting continued investment in larger training runs.",
+      "source": "Kaplan et al., 2020",
+      "tags": ["scaling", "compute", "data"]
+    },
+    {
+      "id": "072",
+      "category": "training_data",
+      "difficulty": "advanced",
+      "text": "Constitutional AI relies on model-generated critiques and revisions rather than expensive human feedback, reducing data labeling costs at scale.",
+      "source": "Bai et al., 2022",
+      "tags": ["constitutional-ai", "synthetic", "alignment"]
+    },
+    {
+      "id": "073",
+      "category": "training_data",
+      "difficulty": "intermediate",
+      "text": "Evaluation data must be held out from training data — using the same data for both inflates metrics and produces dangerously misleading capability estimates.",
+      "source": "Drafted Labs",
+      "tags": ["evaluation", "data-split", "methodology"]
+    },
+    {
+      "id": "074",
+      "category": "training_data",
+      "difficulty": "advanced",
+      "text": "Benchmark contamination occurs when test set examples appear in model pretraining data, making benchmark scores unreliable as capability measures.",
+      "source": "Drafted Labs",
+      "tags": ["contamination", "benchmark", "evaluation"]
+    },
+    {
+      "id": "075",
+      "category": "practical_ml",
+      "difficulty": "beginner",
+      "text": "Loss is a scalar that measures how wrong a model's predictions are. The goal of training is to minimize it over the dataset.",
+      "source": "Drafted Labs",
+      "tags": ["loss", "training", "optimization"]
+    },
+    {
+      "id": "076",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "A learning rate schedules how large the parameter update step is each iteration — too high causes divergence; too low causes painfully slow convergence.",
+      "source": "Drafted Labs",
+      "tags": ["learning-rate", "optimization", "hyperparameter"]
+    },
+    {
+      "id": "077",
+      "category": "practical_ml",
+      "difficulty": "beginner",
+      "text": "A hyperparameter is a setting chosen before training begins (learning rate, batch size, layer count) — as opposed to a parameter, which is learned during training.",
+      "source": "Drafted Labs",
+      "tags": ["hyperparameter", "training", "configuration"]
+    },
+    {
+      "id": "078",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "Cross-entropy loss is the standard loss for classification: it penalizes confident wrong predictions more than uncertain ones.",
+      "source": "Drafted Labs",
+      "tags": ["cross-entropy", "loss", "classification"]
+    },
+    {
+      "id": "079",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "A vector database stores high-dimensional embeddings and enables approximate nearest-neighbor (ANN) search — the backbone of retrieval-augmented generation (RAG).",
+      "source": "Drafted Labs",
+      "tags": ["vector-db", "embeddings", "rag"]
+    },
+    {
+      "id": "080",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "RAG (Retrieval-Augmented Generation) injects retrieved documents into the context window before generation, grounding model outputs in external, up-to-date knowledge.",
+      "source": "Lewis et al., 2020",
+      "tags": ["rag", "retrieval", "generation"]
+    },
+    {
+      "id": "081",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "Cosine similarity measures the angle between two embedding vectors — a score of 1.0 means identical direction, 0 means orthogonal, -1 means opposite.",
+      "source": "Drafted Labs",
+      "tags": ["cosine-similarity", "embeddings", "similarity"]
+    },
+    {
+      "id": "082",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "A confusion matrix shows true positives, false positives, true negatives, and false negatives for a classifier — essential for understanding error patterns beyond accuracy.",
+      "source": "Drafted Labs",
+      "tags": ["confusion-matrix", "evaluation", "classification"]
+    },
+    {
+      "id": "083",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "Precision = TP / (TP + FP). Recall = TP / (TP + FN). They trade off: maximizing one often reduces the other. F1 score is their harmonic mean.",
+      "source": "Drafted Labs",
+      "tags": ["precision", "recall", "f1", "metrics"]
+    },
+    {
+      "id": "084",
+      "category": "practical_ml",
+      "difficulty": "intermediate",
+      "text": "BLEU score measures n-gram overlap between generated text and reference text — a common (if imperfect) metric for machine translation and summarization.",
+      "source": "Papineni et al., 2002",
+      "tags": ["bleu", "evaluation", "nlp"]
+    },
+    {
+      "id": "085",
+      "category": "ethics",
+      "difficulty": "beginner",
+      "text": "Hallucination is the tendency of LLMs to generate plausible-sounding but factually incorrect information — a fundamental challenge with autoregressive generation.",
+      "source": "Drafted Labs",
+      "tags": ["hallucination", "reliability", "safety"]
+    },
+    {
+      "id": "086",
+      "category": "ethics",
+      "difficulty": "advanced",
+      "text": "Prompt injection is an attack where malicious text in user input or retrieved content hijacks the model's behavior — a key security concern for deployed agents.",
+      "source": "Drafted Labs",
+      "tags": ["prompt-injection", "security", "agents"]
+    },
+    {
+      "id": "087",
+      "category": "ethics",
+      "difficulty": "intermediate",
+      "text": "A jailbreak is a prompt technique that bypasses a model's safety training to produce harmful content — an active adversarial research area.",
+      "source": "Drafted Labs",
+      "tags": ["jailbreak", "safety", "adversarial"]
+    },
+    {
+      "id": "088",
+      "category": "ethics",
+      "difficulty": "intermediate",
+      "text": "Alignment refers to the challenge of ensuring AI systems pursue goals consistent with human values and intentions, especially as systems become more capable.",
+      "source": "Stuart Russell, 2019",
+      "tags": ["alignment", "safety", "values"]
+    },
+    {
+      "id": "089",
+      "category": "ethics",
+      "difficulty": "advanced",
+      "text": "Reward hacking: an agent optimizes its reward signal in unexpected ways that satisfy the letter but not the spirit of the goal specification.",
+      "source": "Amodei et al., 2016",
+      "tags": ["reward-hacking", "alignment", "agents"]
+    },
+    {
+      "id": "090",
+      "category": "ethics",
+      "difficulty": "advanced",
+      "text": "Interpretability (mechanistic) research tries to reverse-engineer what computations neural networks are performing — still an open, difficult research problem.",
+      "source": "Anthropic, 2022+",
+      "tags": ["interpretability", "mechanistic", "research"]
+    },
+    {
+      "id": "091",
+      "category": "ethics",
+      "difficulty": "intermediate",
+      "text": "Bias in ML models can emerge from non-representative training data, proxy variables, or optimization objectives that treat demographic groups differently.",
+      "source": "Drafted Labs",
+      "tags": ["bias", "fairness", "training-data"]
+    },
+    {
+      "id": "092",
+      "category": "ethics",
+      "difficulty": "advanced",
+      "text": "Differential privacy adds calibrated noise to training data or gradients, providing mathematical guarantees that individual training examples can't be extracted from models.",
+      "source": "Dwork et al., 2006",
+      "tags": ["differential-privacy", "privacy", "security"]
+    },
+    {
+      "id": "093",
+      "category": "ethics",
+      "difficulty": "intermediate",
+      "text": "Red-teaming is the practice of adversarially probing models for harmful outputs — a required step in responsible AI deployment.",
+      "source": "Drafted Labs",
+      "tags": ["red-teaming", "safety", "evaluation"]
+    },
+    {
+      "id": "094",
+      "category": "ethics",
+      "difficulty": "beginner",
+      "text": "Model cards are documentation templates describing a model's intended use, training data, performance characteristics, and known limitations.",
+      "source": "Mitchell et al., 2019",
+      "tags": ["model-cards", "documentation", "transparency"]
+    }
+  ]
+}
